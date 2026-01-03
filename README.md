@@ -1,6 +1,6 @@
 # 🚀 GKE Cluster Provisioning Using Terraform (Learning Project)
 
-This project demonstrates **how to provision, connect, and destroy a Google Kubernetes Engine (GKE) cluster using Terraform**, authenticated via a **Service Account**. It is optimized for **learning, demos, and YouTube tutorials**, with **low cost and quota-safe defaults**.
+This project demonstrates **how to provision, connect, and destroy a Google Kubernetes Engine (GKE) cluster using Terraform**, authenticated via a **Service Account**.
 
 ---
 
@@ -66,14 +66,14 @@ Terraform
 Export service account credentials:
 
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/gke-sa.json"
+export GOOGLE_APPLICATION_CREDENTIALS="./keys/.json"
 ```
 
 Activate service account:
 
 ```bash
 gcloud auth activate-service-account \
-  --key-file=/path/to/gke-sa.json
+  --key-file=./keys.json
 ```
 
 Set project:
@@ -199,7 +199,7 @@ terraform apply
 Fetch credentials:
 
 ```bash
-gcloud container clusters get-credentials demo-gke-cluster \
+gcloud container clusters get-credentials dev-gke-cluster \
   --zone us-central1-a \
   --project terraform-gcp-482804
 ```
@@ -231,43 +231,3 @@ terraform destroy
 
 ---
 
-## ❗ Common Issues & Fixes
-
-### SSD Quota Error
-
-**Reason:** Regional clusters consume high SSD quota
-
-**Fix:**
-
-* Use **zonal cluster** (`us-central1-a`)
-* Reduce disk size
-* Use `pd-standard`
-
----
-
-## 🎓 Learning Best Practices
-
-* Use `e2-small` for labs
-* Prefer zonal clusters
-* Always disable deletion protection for demos
-* Avoid committing service account keys
-
----
-
-## 🏁 Summary
-
-✔ Low-cost GKE learning setup
-✔ Terraform module based design
-✔ Quota-safe & beginner-friendly
-✔ Ready for demos & tutorials
-
----
-
-## 📌 Next Enhancements (Optional)
-
-* Cluster autoscaling
-* Workload Identity
-* Remote Terraform backend (GCS)
-* RBAC configuration
-
----
