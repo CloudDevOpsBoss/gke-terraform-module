@@ -20,17 +20,17 @@ module "dev" {
   cluster_name = var.cluster_name
 }
 
-module "qa" {
-  source       = "./modules/gke"
-  project_id   = var.project_id
-  region       = var.region
-  cluster_name = var.cluster_name_qa
-}
-module "prod" {
-  source       = "./modules/gke"
-  project_id   = var.project_id
-  region       = var.region
-  cluster_name = var.cluster_name_prod
-}
+# module "qa" {
+#   source       = "./modules/gke"
+#   project_id   = var.project_id
+#   region       = var.region
+#   cluster_name = var.cluster_name_qa
+# }
+# module "prod" {
+#   source       = "./modules/gke"
+#   project_id   = var.project_id
+#   region       = var.region
+#   cluster_name = var.cluster_name_prod
+# }
 
   
