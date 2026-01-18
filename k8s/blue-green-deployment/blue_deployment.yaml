@@ -6,12 +6,12 @@ spec:
   replicas: 3 
   selector:
     matchLabels:
-      app: web
+      app: myapp
       version: blue
   template: 
     metadata:
       labels:
-        app: web
+        app: myapp
         version: blue       
     spec:
       containers:
