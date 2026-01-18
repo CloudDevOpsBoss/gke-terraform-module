@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-blue
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: web
+      version: blue
+  template: 
+    metadata:
+      labels:
+        app: web
+        version: blue       
+    spec:
+      containers:
+      - name: web-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
